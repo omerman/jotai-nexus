@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Getter, Setter, WritableAtom } from "jotai";
+import { Getter, Setter, Atom, WritableAtom } from "jotai";
 import { useAtomCallback } from "jotai/utils";
 
 let _get!: Getter;
@@ -20,7 +20,9 @@ const JotaiNexus: React.FC = () => {
 
 export default JotaiNexus;
 
-export const readAtom = (...args: Parameters<Getter>) => _get(...args);
+export const readAtom = <A extends Atom<any>>(
+  a: A
+): A extends Atom<infer Data> ? Data : never => _get(a);
 
 export const writeAtom = <A extends WritableAtom<any, any>>(
   a: A,
