@@ -1,0 +1,37 @@
+{
+  "name": "jotai-nexus",
+  "version": "1.0.0",
+  "description": "A small Typescript package to access Jotai atoms outside of React components. Inspired by Recoil-Nexus",
+  "main": "build/JotaiNexus.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "jotai",
+    "connection",
+    "outside",
+    "react",
+    "typescript",
+    "nexus"
+  ],
+  "author": "Omer Prizner",
+  "license": "MIT",
+  "peerDependencies": {
+    "@types/react": ">=16.8.0",
+    "jotai": "^1.6.1",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "typescript": ">=4.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/omerman/jotai-nexus"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.43",
+    "jotai": "^1.6.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.6.3"
+  }
+}
