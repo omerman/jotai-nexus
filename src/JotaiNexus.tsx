@@ -1,30 +1,23 @@
-import { useEffect } from "react";
-import { Getter, Setter, Atom, WritableAtom } from "jotai";
+import { Getter, Setter } from "jotai";
 import { useAtomCallback } from "jotai/utils";
+import { useCallback, useEffect } from "react";
 
-let _get!: Getter;
-let _set!: Setter;
+export let readAtom!: Getter;
+export let writeAtom!: Setter;
 
-const JotaiNexus: React.FC = () => {
-  const initReader = useAtomCallback((get, set) => {
-    _get = get;
-    _set = set;
-  });
+const JotaiNexus = () => {
+  const init = useAtomCallback(
+    useCallback((get, set) => {
+      readAtom = get;
+      writeAtom = set;
+    }, [])
+  );
 
   useEffect(() => {
-    initReader();
-  }, [initReader]);
+    init();
+  }, []);
 
   return null;
 };
 
 export default JotaiNexus;
-
-export const readAtom = <A extends Atom<any>>(
-  a: A
-): A extends Atom<infer Data> ? Data : never => _get(a);
-
-export const writeAtom = <A extends WritableAtom<any, any>>(
-  a: A,
-  update: A extends WritableAtom<any, infer Update> ? Update : never
-) => a.write(_get, _set, update);
