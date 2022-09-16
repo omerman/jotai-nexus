@@ -15,7 +15,7 @@ const JotaiNexus = () => {
 
   useEffect(() => {
     init();
-  }, []);
+  }, [init]);
 
   return null;
 };
