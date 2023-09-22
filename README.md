@@ -1,3 +1,5 @@
+Archived in favor of Jotai's Provider & Store
+
 # J O T A I - N E X U S
 
 Inspired by [Recoil Nexus](https://github.com/luisanton-io/recoil-nexus)
